@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/itproger_styles.css' %}">
+	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	{% block icon %}{% endblock %}
+	<title>{% block title %} {{title|title}} {% endblock %}</title>
+</head>
+<body>
+	
+	<aside>
+		<img src="{% static 'main/img/canvas.png' %}" alt="logo">
+		<div class="logo" style="cursor:default;">Armen<span>1337</span></div>
+		<h3 style="cursor: default;">Navigation</h3>
+		<ul>
+			<a href="{% url 'home' %}"><li>{% block home %}<i class="fas fa-home"></i> Home {% endblock %}</li></a>
+			<a href="{% url 'about' %}"><li>{% block about %}<i class="fas fa-paper-plane"></i> About us {% endblock %}</li></a>
+			<a href="{% url 'contacts' %}"><li>{% block contacts %}<i class="fas fa-address-card"></i> Contacts {% endblock %}</li></a>
+			<a href="{% url 'news_home' %}"><li>{% block news %}<i class="far fa-newspaper"></i> News {% endblock %}</li></a>
+			<a href="{% url 'create' %}"><li><button class="btn btn-info"><font size="5px"><i class="fas fa-plus-circle"></i> Add article </font></button></li></a>
+			<a href="/signup/"><li>{% block signup %}<i class="far fa-user"></i> Sign up {% endblock %}</li></a>
+			<a href="/admin/" style="cursor: not-allowed;"><li><i class="fas fa-user-shield"></i> Admin</li></a>
+		</ul>
+	</aside>
+
+	<main>
+		{% block content %}
+
+		{% endblock %}
+	</main>
+</body>
+</html>

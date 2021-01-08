@@ -1,0 +1,16 @@
+{% extends 'my_layout.html' %}
+
+{% block title %} Delete article {% endblock %}
+
+{% block content %}
+<div class="features">
+	<h1> Deleting article </h1>
+	<h4 style="margin-top: 20px;"> Are you sure? </h4>
+	<form method="POST">
+		{% csrf_token %}
+		<button type="submit" class="btn btn-danger" style="margin-left: -10px;"> Delete </button>
+		<a href="/news/" style="margin-left: 15px;" class="btn btn-light"> Go back </a>
+	</form>
+	
+</div>
+{% endblock %}

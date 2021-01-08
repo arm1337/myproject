@@ -1,0 +1,20 @@
+{% extends 'my_layout.html' %}
+{% load static %}
+
+{% block title %} {{article.article_title}} {% endblock %}
+
+{% block news %} <font size="6.25px" color="#eb5959"><i class="far fa-newspaper"></i> News</font> {% endblock %}
+
+{% block icon %} <link rel="icon" href="{% static 'main/img/newspaper.png' %}"> {% endblock %}
+
+{% block content %}
+<div class="features">
+	<h1 style="margin-top: -30px;">{{article.article_title}}</h1>
+	<h4 style="color: #b6b6b6; margin-top: 20px;">{{article.announcement}}</h4>
+	<p>{{article.article_content}}</p>
+	<p><i style="margin-left: 50%;"> {{ article.pub_date }} </i></p>
+	<p> <a href="{% url 'news-update' article.id %}" class="btn btn-warning"> Update </a>
+	<a href="{% url 'news-delete' article.id %}" class="btn btn-danger" style="margin-left: 15px;"> Delete </a> </p>
+</div>
+
+{% endblock %}

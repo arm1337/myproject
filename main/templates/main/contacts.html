@@ -1,0 +1,21 @@
+{% extends 'my_layout.html' %}
+
+{% load static %}
+{% block icon %}<link rel="icon" href="{% static 'main/img/paper_plane.png' %}">{% endblock %}
+
+{% block contacts %}<font size="6.25px" color="#eb5959"><i class="fas fa-address-card"></i> Contacts</font> {% endblock %}
+
+{% block content %}
+<div class="contacts" style="margin-left: 10%;">
+	<h1>Contacts</h1>
+	<ul>
+		<li><i> E-mail for contact: </i><span> contact@armen1337.com</span></li>
+		<li><i> Support team e-mail: </i><span> support@armen1337.com</span></li>
+		<li><i> Our address: </i><span> 1600 Amphitheatre Parkway<br>Mountain View, CA 94043 </span></li>
+		<li><i> Our phone: </i><span> (800) 426-9400 </span></li>
+		<li><i> Additional phone: </i><span> (425) 882-8080 </span></li>
+		<li><i> Fax: </i><span>(425) 706-7329</span></li>
+	</ul>
+	<a href="{% url 'home' %}"><button class="btn btn-danger"> Home </button></a>
+</div>
+{% endblock %}

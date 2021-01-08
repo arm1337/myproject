@@ -1,0 +1,27 @@
+{% extends 'my_layout.html' %}
+{% load static %}
+
+
+{% block icon %} <link rel="icon" href="{% static 'main/img/newspaper.png' %}"> {% endblock %}
+
+{% block title %} News {% endblock %}
+
+{% block news %} <font size="6.25px" color="#eb5959"><i class="far fa-newspaper"></i> News</font> {% endblock %}
+
+
+{% block content %}
+	<div class="features">
+		<h1 style="margin-top: -30px; margin-bottom: 20px;"> Latest news! </h1>
+		
+		<div class="latest_news-flex">
+		{% for i in latest_news %}
+			<a href="{{i.id}}/"><div class="article-style">
+				<div class="inner-article-style">
+					<h3> {{ i.article_title }} </h3>
+					<p> {{ i.announcement }} </p>
+				</div>
+			</div></a>
+		{% endfor %}
+		</div>
+	</div>
+{% endblock %}

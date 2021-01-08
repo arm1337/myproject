@@ -1,0 +1,20 @@
+{% extends 'my_layout.html' %}
+
+{% block title %} Add article {% endblock %}
+
+{% load static %}
+{% block icon %} <link rel="icon" href="{% static 'main/img/plus_circle.png' %}"> {% endblock %}
+
+{% block content %}
+	<div class="features">
+		<h1> Form for creating article </h1>
+		<form method="POST">
+			<h5> {{ error }} </h5><br>
+			{% csrf_token %}
+			{{ form.article_title }}<br>
+			{{ form.announcement }}<br>
+			{{ form.article_content }}<br>
+			<button type="submit" class="btn btn-success"> Publish </button>
+		</form>
+	</div>
+{% endblock %}

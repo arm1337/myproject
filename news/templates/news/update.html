@@ -1,0 +1,20 @@
+{% extends 'my_layout.html' %}
+
+{% block title %} Update article {% endblock %}
+
+{% load static %}
+{% block icon %} <link rel="icon" href="{% static 'main/img/newspaper.png' %}"> {% endblock %}
+
+{% block content %}
+	<div class="features">
+		<h1> Update your article </h1>
+		<form method="POST">
+			<h5> {{ error }} </h5><br>
+			{% csrf_token %}
+			{{ form.article_title }}<br>
+			{{ form.announcement }}<br>
+			{{ form.article_content }}<br>
+			<button type="submit" class="btn btn-success"> Update </button>
+		</form>
+	</div>
+{% endblock %}
