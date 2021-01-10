@@ -1,0 +1,19 @@
+{% extends 'my_layout.html' %}
+
+{% block title %} Sign in {% endblock %}
+
+{% block signin %} <font size="6.25px" color="#eb5959"> Sign in</font> {% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="features">
+	<h1> Login into your account </h1>
+	<form method="POST" class="form-group">
+		{% csrf_token %}
+		{{ form|crispy }}
+		<a href="{% url 'register' %}"> Don't have an account? </a><br>
+		<button type="submit" class="btn btn-warning" style="margin-top: 20px;"> Sign in </button>
+	</form>
+</div>
+{% endblock %}1
