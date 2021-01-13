@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import Http404
+# from django.http import Http404
 from django.views.generic import DetailView, UpdateView, DeleteView   # ListView
 
 from .models import Article

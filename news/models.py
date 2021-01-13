@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 from datetime import datetime
 
@@ -14,7 +15,9 @@ class Article(models.Model):
 		return f'{self.article_title} ({self.id})'
 
 	def get_absolute_url(self):
-		return f"/news/{self.id}"
+		return reverse("news-detail", kwargs = {"id": self.id})
+		# return f"/news/{self.id}" - is a bad method, because when root url /news/ would change,
+		# then the get_absolute_url function wouldn't work
 
 	class Meta:
 		verbose_name = "Article"
