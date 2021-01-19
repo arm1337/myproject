@@ -1,6 +1,6 @@
 from django.forms import ModelForm, TextInput, Textarea, DateTimeInput
 
-from .models import Article
+from .models import Article, Comment
 
 
 class ArticleForm(ModelForm):
@@ -21,8 +21,18 @@ class ArticleForm(ModelForm):
 					'class': 'form-control',
 					'placeholder': 'Article content',
 				}),
-			# 'pub_date': DateTimeInput({
-			# 		'class': 'form-control',
-			# 		'placeholder': 'Publication date',
-			# 	}),
 		}
+
+# class CommentForm(ModelForm):
+# 	model = Comment
+# 	fields = ['author', 'comment_content']
+
+# 	widgets = {
+# 		'author': TextInput(attrs = {
+# 				'placeholder': 'Your name',
+# 			}),
+
+# 		'comment_content': Textarea(attrs = {
+# 				'placeholder': "Your comment",
+# 			}),
+# 	}

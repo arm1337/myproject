@@ -13,8 +13,13 @@
 	<h4 style="color: #b6b6b6; margin-top: 20px;">{{article.announcement}}</h4>
 	<p>{{article.article_content}}</p>
 	<p><i style="margin-left: 50%;"> {{ article.pub_date }} </i></p>
-	<p> <a href="{% url 'news-update' article.id %}" class="btn btn-warning"> Update </a>
-	<a href="{% url 'news-delete' article.id %}" class="btn btn-danger" style="margin-left: 15px;"> Delete </a> </p>
+	<p> <a href="{% url 'news:news-update' article.id %}" class="btn btn-warning"> Update </a>
+	<a href="{% url 'news:news-delete' article.id %}" class="btn btn-danger" style="margin-left: 15px;"> Delete </a> </p>
+
+	<hr style="background-color: gray; margin: 50px 0px;">
+	<div style="margin-bottom: 40px;">
+		{% include 'news/comments.html' %}
+	</div>
 </div>
 
 {% endblock %}

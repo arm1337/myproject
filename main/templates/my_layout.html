@@ -18,8 +18,8 @@
 			<a href="{% url 'home' %}"><li>{% block home %}<i class="fas fa-home"></i> Home {% endblock %}</li></a>
 			<a href="{% url 'about' %}"><li>{% block about %}<i class="fas fa-paper-plane"></i> About us {% endblock %}</li></a>
 			<a href="{% url 'contacts' %}"><li>{% block contacts %}<i class="fas fa-address-card"></i> Contacts {% endblock %}</li></a>
-			<a href="{% url 'news_home' %}"><li>{% block news %}<i class="far fa-newspaper"></i> News {% endblock %}</li></a>
-			<a href="{% url 'create' %}"><li><button class="btn btn-info"><font size="5px"><i class="fas fa-plus-circle"></i> Add article </font></button></li></a>
+			<a href="{% url 'news:news_home' %}"><li>{% block news %}<i class="far fa-newspaper"></i> News {% endblock %}</li></a>
+			<a href="{% url 'news:create' %}"><li><button class="btn btn-info"><font size="5px"><i class="fas fa-plus-circle"></i> Add article </font></button></li></a>
 			{% if user.is_authenticated %}
 				<a href="{% url 'logout' %}"><li> Logout </li></a>
 			{% else %}

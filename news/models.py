@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
-from datetime import datetime
+# from datetime import datetime
 
 
 class Article(models.Model):
@@ -22,3 +22,17 @@ class Article(models.Model):
 	class Meta:
 		verbose_name = "Article"
 		verbose_name_plural = "Articles"
+
+
+class Comment(models.Model):
+	article = models.ForeignKey(Article, on_delete = models.CASCADE)
+	author = models.CharField("Author", max_length = 200)
+	comment_content = models.TextField("Comment")
+	comment_date = models.DateTimeField("Comment date", auto_now_add = True)
+
+	def __str__(self):
+		return self.author
+
+	class Meta:
+		verbose_name = "Comment"
+		verbose_name_plural = "Comments"

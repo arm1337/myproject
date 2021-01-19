@@ -1,0 +1,20 @@
+<h2 style="margin: 70px 0px 40px 0px;"> Comments </h2>
+
+{# regroup article.comment_set.all by id as comment_list #}
+
+{% for comment in article.comment_set.all|dictsort:"id" %}
+	<p><b> {{ comment.author }} </b> - <i> {{ comment.comment_date }} </i></p>
+	<p> {{ comment.comment_content }} </p>
+	<hr style="background-color: gray;">
+{% empty %}
+	<h4 style="margin-bottom: 50px;"> There are no comments, be first! </h4>
+{% endfor %}
+
+<h2 style="margin-bottom: 40px;"> Leave a comment </h2>
+
+<form method="POST" action="{% url 'news:leave_comment' article.id %}">
+	{% csrf_token %}
+	<p>	<input type="text" name="author_name" placeholder="Your name" style="width: 400px;"> </p>
+	<p><textarea name="comment_content" placeholder="Your comment" style="width: 400px; height: 300px;"></textarea></p>
+	<button type="submit" class="btn btn-success"> Submit </button>
+</form>
